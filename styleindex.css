@@ -1,0 +1,44 @@
+html body{
+    font-size:larger;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin:0;
+}
+.container{
+    background-image: linear-gradient(lightcyan, lightseagreen);
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+.calIMC{
+    padding: 20vh 30vw;
+}
+h1{
+    color: rgb(27, 146, 140);
+    font-size: 4rem;
+    margin: 0;
+    white-space: nowrap;
+}
+.conteudo{
+    padding: 5px 0 0 120px;
+}
+.btnCal{
+        border:1px solid rgb(205, 229, 228);
+        border-radius:4px;
+        display:inline-block;
+        cursor:pointer;
+        font-weight:bold;
+        font-size:15px;
+        padding:8px 60px;
+        text-decoration:none;
+        border-color:rgb(21, 108, 104);
+    background:linear-gradient(to bottom, #abd5aa 5%, rgb(27, 146, 140) 100%);
+    box-shadow:inset 0px 1px 0px 0px #e3f1e3;
+    color:rgb(17, 17, 17);
+}
+.btnCal:hover {
+    background:linear-gradient(to bottom, rgb(27, 146, 140) 5%, #abd5aa 100%);
+    }
+    .btnCal:active {
+        position:relative;
+        top:2px;}
+     

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="styleindex.css" />
+    <title>Inicio</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calIMC">
+            <h1>
+                Calculadora de IMC
+            </h1>
+            <div class="conteudo">
+                <p>
+                    Insira as informações para calcular IMC:
+                </p>
+                <label for="txtAltura">Altura: </label>
+                <input type="text" id="txtAltura" placeholder="Digite sua altura: (ex:1.60)">
+                <br><br>
+                <label for="txtPeso">Peso: </label>
+                <input type="text" id="txtPeso" placeholder="Digite seu peso: (ex:50)">
+                <br><br>
+                <label for="txtIdade">Idade: </label>
+                <input type="text" id="txtIdade" placeholder="Desenvolvendo">
+                <br><br>
+                <input type="radio" id="sex1" name="sexo" value="F">
+                <label for="sex1">Feminino</label><br><input type="radio" id="sex2" name="sexo" value="M">
+                <label for="sex2">Masculino</label>
+                <br><br>
+                <button onclick="Calcular()" class="btnCal">Enviar</button>
+                <div id="mensagem"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
