@@ -1,0 +1,20 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid $tertiary;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+  }
+  
+  &__description {
+    font-size: 1rem;
+  }
+}
