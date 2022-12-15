@@ -1,43 +1,138 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="styleindex.css" />
-    <title>Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Calculadora de IMC</title>
 </head>
-
 <body>
     <div class="container">
-        <div class="calIMC">
-            <h1>
-                Calculadora de IMC
-            </h1>
-            <div class="conteudo">
-                <p>
-                    Insira as informações para calcular IMC:
+        <div class="container__form">
+            <header class="header">
+                <h1 class="header__title">Calculadora de IMC</h1>
+                <p class="header__description">
+                    Preencha os dados abaixo para obter o seu índice de massa corporal
                 </p>
-                <label for="txtAltura">Altura: </label>
-                <input type="text" id="txtAltura" placeholder="Digite sua altura: (ex:1.60)">
-                <br><br>
-                <label for="txtPeso">Peso: </label>
-                <input type="text" id="txtPeso" placeholder="Digite seu peso: (ex:50)">
-                <br><br>
-                <label for="txtIdade">Idade: </label>
-                <input type="text" id="txtIdade" placeholder="Desenvolvendo">
-                <br><br>
-                <input type="radio" id="sex1" name="sexo" value="F">
-                <label for="sex1">Feminino</label><br><input type="radio" id="sex2" name="sexo" value="M">
-                <label for="sex2">Masculino</label>
-                <br><br>
-                <button onclick="Calcular()" class="btnCal">Enviar</button>
-                <div id="mensagem"></div>
+            </header>
+
+            <div class="form">
+                <fieldset class="form__fieldset">
+                    <div class="input-box">
+                        <label for="txtNome" class="input-box__label">Name</label>
+                        <input
+                            id="txtNome"
+                            type="text"
+                            placeholder="Digite seu nome"
+                            class="input-box__input"
+                        >
+                    </div>
+
+                    <div class="input-box">
+                        <label for="txtIdade" class="input-box__label">Idade</label>
+                        <input
+                            id="txtIdade"
+                            type="text"
+                            placeholder="Digite sua idade"
+                            class="input-box__input"
+                        >
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="txtAltura" class="input-box__label">Altura</label>
+                        <input
+                            type="text"
+                            id="txtAltura"
+                            placeholder="Digite sua altura: (ex:1.60)"
+                            class="input-box__input"
+                        >
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="txtPeso" class="input-box__label">Peso</label>
+                        <input
+                            type="text"
+                            id="txtPeso"
+                            placeholder="Digite seu peso: (ex:50)"
+                            class="input-box__input"
+                        >
+                    </div>
+                    
+                    <div class="radio-box">
+                        <span class="radio-box__label">Gênero</span>
+                        <div class="radio-box__radios">
+                            <div class="radio-box__radio">
+                                <input
+                                    type="radio"
+                                    id="sex1"
+                                    name="sexo"
+                                    value="F"
+                                    class="radio-box__input"
+                                >
+                                <label for="sex1" class="radio-box__option">Feminino</label>
+                            </div>
+                            <div class="radio-box__radio">
+                                <input
+                                    type="radio"
+                                    id="sex2"
+                                    name="sexo"
+                                    value="M"
+                                    placeholder="Digite seu nome"
+                                    class="radio-box__input"
+                                >
+                                <label for="sex2" class="radio-box__option">Masculino</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button onclick="Calcular()" class="form__button">Enviar informações</button>
             </div>
         </div>
-    </div>
-</body>
 
+        <div class="container__dash">
+            <main class="main">
+                <header class="header">
+                    <h1 class="header__title">Resultado</h1>
+                    <p class="header__description" id="mensagem">
+                        Preencha o formulário ao lado
+                    </p>
+                </header>
+
+                <div class="resume">
+                    <div class="resume__info">
+                        <span>Peso atual</span>
+                        <p id="pesoAtual">00,0 kg</p>
+                    </div>
+                    <div class="resume__info">
+                        <span>Objetivo</span>
+                        <p id="objetivo">00,0 kg</p>
+                    </div>
+                    <div class="resume__info">
+                        <span>Diferença</span>
+                        <p id="diferença">00,0 kg</p>
+                    </div>
+                </div>
+
+                <span class="main__title">Meu progresso - Últimos 7 dias</span>
+
+                <table>
+                    <tr>
+                        <td><i class="ph-barbell"></i></td>
+                        <td>--/--/----</td>
+                        <td>IMC --.-- kg/m²</td>
+                        <td>--,-- kg</td>
+                        <td>--,-- kg</td>
+                    </tr>
+                </table>
+            </main>
+        </div>
+    </div>
+    <script src="/index.js"></script>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+</body>
 </html>

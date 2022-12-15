@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    max-width: 75%;
+    margin: 0 auto;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+
+    &__form {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 10rem 4rem 0;
+        transition: 500ms ease-in-out;
+    }
+
+    &__dash {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 10rem 4rem 0;
+        transition: 500ms ease-in-out;
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.2;
+    }
+}
+
