@@ -29,7 +29,7 @@
   
 }
 table{
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   tbody{
     text-align: center;
     padding: 1.5rem;
@@ -43,6 +43,14 @@ table{
       background-color: #E5E5E5;
       color: #000000;
     }
+  }
+}
+.radio-box__radios {
+  justify-content: center;
+  margin:0.2rem 0 4rem 0;
+  .radio-box__radio{
+    padding: 1rem;
+    align-items:center;
   }
 }
 .resume {

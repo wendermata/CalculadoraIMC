@@ -116,7 +116,7 @@ button {
   margin: 2rem auto 1.5rem; }
 
 table {
-  margin-bottom: 4rem; }
+  margin-bottom: 3rem; }
 
 table tbody {
   text-align: center;
@@ -131,6 +131,14 @@ table tbody td {
   border-radius: 0.4rem;
   background-color: #E5E5E5;
   color: #000000; }
+
+.radio-box__radios {
+  justify-content: center;
+  margin: 0.2rem 0 4rem 0; }
+
+.radio-box__radios .radio-box__radio {
+  padding: 1rem;
+  align-items: center; }
 
 .resume {
   gap: 2rem;
