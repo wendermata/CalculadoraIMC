@@ -9,14 +9,7 @@ function cadastrarPessoa() {
     persistirLista(person);
 
     Swal.fire("OK", "Pessoa inserida com sucesso!", "success")
-        .then(function (){
-            atualizarTabela();
-        });
-    // let form = document.querySelector(".container__form")
-    // let dash = document.querySelector(".container__dash")
-
-    // form.style = "pointer-events: none; user-select: none; opacity: 0.2;"
-    // dash.style = "pointer-events: inherit; user-select: inherit; opacity: 1;"
+        .then(() =>{atualizarTabela()});
 }
 
 class pessoa {
@@ -102,7 +95,26 @@ function persistirLista(objeto) {
 function atualizarTabela() {
     var lista = JSON.parse(localStorage.getItem('listPessoa'));
     lista.forEach(pessoa => {
-        swal.fire(pessoa.nome + ' está na faixa: ' + pessoa.faixa);
+        inserirLinha(pessoa);
         //atualizar codigo html com os elementos
     });
+}
+
+function inserirLinha(item){
+    var tabela = document.getElementsByTagName('table')[0];
+    var linha = tabela.insertRow(1);
+
+    var nome = linha.insertCell(0);
+    var peso = linha.insertCell(1);
+    var altura = linha.insertCell(2);
+    var idade = linha.insertCell(3);
+    var sexo = linha.insertCell(4);
+    var imc = linha.insertCell(5);
+
+    nome.innerHTML = '<td>'+ item.nome +'</td>';
+    peso.innerHTML = '<td>'+ item.peso +'</td>';
+    altura.innerHTML = '<td>'+ item.altura +'</td>';
+    idade.innerHTML = '<td>'+ item.idade +'</td>';
+    sexo.innerHTML = '<td>'+ item.sexo +'</td>';
+    imc.innerHTML = '<td>'+ item.faixa +'</td>';
 }
