@@ -78,15 +78,15 @@
                 <div class="resume">
                     <div class="resume__info">
                         <span>Pessoas abaixo do peso</span>
-                        <p id="pesoAtual">00</p>
+                        <p id="qtdAbaixo">0</p>
                     </div>
                     <div class="resume__info">
                         <span>Pessoas com peso ideal</span>
-                        <p id="objetivo">00</p>
+                        <p id="qtdIdeal">0</p>
                     </div>
                     <div class="resume__info">
                         <span>Pessoas acima do peso</span>
-                        <p id="diferença">00</p>
+                        <p id="qtdAcima">0</p>
                     </div>
                 </div>
 
@@ -102,6 +102,7 @@
                         <td>IMC</td>
                     </tr>
                 </table>
+
                 <div class="radio-box__radios">
                     <div class="radio-box__radio">
                         <input type="checkbox" id="grauI" name="grauI" value="#" class="radio-box__radio">
@@ -120,6 +121,8 @@
                         <label for="grauIV" class="radio-box__option">Obesidade</label>
                     </div>
                 </div>
+                <button onclick="limparLista()" class="form__button">Limpar lista</button>
+
         </div>
         </main>
     </div>

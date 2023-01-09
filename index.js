@@ -1,3 +1,7 @@
+window.onload = function() {
+    atualizarTabela();
+  };
+
 function cadastrarPessoa() {
     let nome = document.getElementById("txtNome").value.replace(',', '.');
     let altura = document.getElementById("txtAltura").value.replace(',', '.');
@@ -9,7 +13,7 @@ function cadastrarPessoa() {
     persistirLista(person);
 
     Swal.fire("OK", "Pessoa inserida com sucesso!", "success")
-        .then(() =>{atualizarTabela()});
+        .then(() => { atualizarTabela() });
 }
 
 class pessoa {
@@ -93,14 +97,20 @@ function persistirLista(objeto) {
 }
 
 function atualizarTabela() {
+    limparTabela();
+
     var lista = JSON.parse(localStorage.getItem('listPessoa'));
-    lista.forEach(pessoa => {
-        inserirLinha(pessoa);
-        //atualizar codigo html com os elementos
-    });
+    if (lista != null && lista.length > 0) {
+        lista.forEach(pessoa => {
+            inserirLinha(pessoa);
+        });
+    }
+    else{
+        adicionarLinhaSemRegistro();
+    }
 }
 
-function inserirLinha(item){
+function inserirLinha(item) {
     var tabela = document.getElementsByTagName('table')[0];
     var linha = tabela.insertRow(1);
 
@@ -111,10 +121,64 @@ function inserirLinha(item){
     var sexo = linha.insertCell(4);
     var imc = linha.insertCell(5);
 
-    nome.innerHTML = '<td>'+ item.nome +'</td>';
-    peso.innerHTML = '<td>'+ item.peso +'</td>';
-    altura.innerHTML = '<td>'+ item.altura +'</td>';
-    idade.innerHTML = '<td>'+ item.idade +'</td>';
-    sexo.innerHTML = '<td>'+ item.sexo +'</td>';
-    imc.innerHTML = '<td>'+ item.faixa +'</td>';
+    nome.innerHTML = '<td>' + item.nome + '</td>';
+    peso.innerHTML = '<td>' + item.peso + '</td>';
+    altura.innerHTML = '<td>' + item.altura + '</td>';
+    idade.innerHTML = '<td>' + item.idade + '</td>';
+    sexo.innerHTML = '<td>' + item.sexo + '</td>';
+    imc.innerHTML = '<td>' + item.faixa + '</td>';
+
+    atualizarStatus();
+}
+
+function atualizarStatus() {
+    var qtdAbaixo = 0;
+    var qtdIdeal = 0;
+    var qtdAcima = 0;
+
+    var lblAbaixo = document.getElementById('qtdAbaixo');
+    var lblIdeal = document.getElementById('qtdIdeal');
+    var lblAcima = document.getElementById('qtdAcima');
+
+    var lista = JSON.parse(localStorage.getItem('listPessoa'));
+    lista.forEach(pessoa => {
+        if (pessoa.faixa == 'abaixo') {
+            qtdAbaixo += 1;
+        }
+        else if (pessoa.faixa == 'ideal') {
+            qtdIdeal += 1;
+        }
+        else {
+            qtdAcima += 1;
+        }
+    });
+
+    lblAbaixo.textContent = qtdAbaixo;
+    lblIdeal.textContent = qtdIdeal;
+    lblAcima.textContent = qtdAcima
+}
+
+function limparTabela() {
+    var tabela = document.getElementsByTagName('table')[0];
+    if(tabela.rows.length < 2){
+        return;
+    }
+
+    for(i = 0; i < tabela.rows.length; i++){
+        tabela.deleteRow(1);
+    }
+}
+
+function adicionarLinhaSemRegistro(){
+    var tabela = document.getElementsByTagName('table')[0];
+    var linha = tabela.insertRow(1);
+    var celula = linha.insertCell(0);
+    celula.innerHTML = "<td> SEM REGISTROS </td>";
+    celula.colSpan = 6;
+}
+
+function limparLista(){
+    var listaVazia = [];
+    localStorage.setItem('listPessoa', JSON.stringify(listaVazia));
+    atualizarTabela();
 }
