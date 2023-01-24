@@ -1,6 +1,6 @@
-window.onload = function() {
+window.onload = function () {
     atualizarTabela();
-  };
+};
 
 function cadastrarPessoa() {
     let nome = document.getElementById("txtNome").value.replace(',', '.');
@@ -105,7 +105,7 @@ function atualizarTabela() {
             inserirLinha(pessoa);
         });
     }
-    else{
+    else {
         adicionarLinhaSemRegistro();
     }
 }
@@ -160,16 +160,16 @@ function atualizarStatus() {
 
 function limparTabela() {
     var tabela = document.getElementsByTagName('table')[0];
-    if(tabela.rows.length < 2){
+    if (tabela.rows.length < 2) {
         return;
     }
 
-    for(i = 0; i < tabela.rows.length; i++){
+    for (i = 0; i < tabela.rows.length; i++) {
         tabela.deleteRow(1);
     }
 }
 
-function adicionarLinhaSemRegistro(){
+function adicionarLinhaSemRegistro() {
     var tabela = document.getElementsByTagName('table')[0];
     var linha = tabela.insertRow(1);
     var celula = linha.insertCell(0);
@@ -177,8 +177,26 @@ function adicionarLinhaSemRegistro(){
     celula.colSpan = 6;
 }
 
-function limparLista(){
+function limparLista() {
     var listaVazia = [];
     localStorage.setItem('listPessoa', JSON.stringify(listaVazia));
     atualizarTabela();
+}
+
+function buscarHora() {
+
+    var mock = {"timeZone":"America/Sao_Paulo","currentLocalTime":"2023-01-23T22:56:19.7946564","currentUtcOffset":{"seconds":-10800,"milliseconds":-10800000,"ticks":-108000000000,"nanoseconds":-10800000000000},"standardUtcOffset":{"seconds":-10800,"milliseconds":-10800000,"ticks":-108000000000,"nanoseconds":-10800000000000},"hasDayLightSaving":false,"isDayLightSavingActive":false,"dstInterval":null}
+    var myHeaders = new Headers();
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch("https://www.timeapi.io/api/TimeZone/zone?timeZone=America/Sao_Paulo", requestOptions)
+        .then(response => response.text())
+        .then(result =>  Swal.fire("Hora Atual é:"+ new Date (result.currentLocalTime).toLocaleTimeString()))
+        .catch(error => Swal.fire("Hora Atual é: "+ new Date (mock.currentLocalTime).toLocaleTimeString()));
 }

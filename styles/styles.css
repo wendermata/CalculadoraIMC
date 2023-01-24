@@ -239,3 +239,7 @@ table tbody td {
 .radio-box__input {
   width: 1.5rem;
   height: 1.5rem; }
+
+  .hora{
+    background-color: #E19B48;
+  }
