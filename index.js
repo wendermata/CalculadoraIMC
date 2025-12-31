@@ -182,21 +182,3 @@ function limparLista() {
     localStorage.setItem('listPessoa', JSON.stringify(listaVazia));
     atualizarTabela();
 }
-
-function buscarHora() {
-
-    var mock = {"timeZone":"America/Sao_Paulo","currentLocalTime":"2023-01-23T22:56:19.7946564","currentUtcOffset":{"seconds":-10800,"milliseconds":-10800000,"ticks":-108000000000,"nanoseconds":-10800000000000},"standardUtcOffset":{"seconds":-10800,"milliseconds":-10800000,"ticks":-108000000000,"nanoseconds":-10800000000000},"hasDayLightSaving":false,"isDayLightSavingActive":false,"dstInterval":null}
-    var myHeaders = new Headers();
-    myHeaders.append("Access-Control-Allow-Origin", "*");
-
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
-
-    fetch("https://www.timeapi.io/api/TimeZone/zone?timeZone=America/Sao_Paulo", requestOptions)
-        .then(response => response.text())
-        .then(result =>  Swal.fire("Hora Atual é:"+ new Date (result.currentLocalTime).toLocaleTimeString()))
-        .catch(error => Swal.fire("Hora Atual é: "+ new Date (mock.currentLocalTime).toLocaleTimeString()));
-}
